@@ -188,7 +188,7 @@ and DIR is the directory to find notes."
       :annotate ,(apply-partially consult-notes-annotate-note-function name)
       :items    ,(lambda () (mapcar (lambda (f) (concat idir f))
 				               ;; filter files that glob *.*
-				               (directory-files dir nil "[^.].*[.].+")))
+				               (directory-files dir nil "[^.].*[.]org$")))
       :action   ,(lambda (f) (find-file f) consult-notes-default-format))))
 
 (defun consult-notes-annotate-note (name cand)
